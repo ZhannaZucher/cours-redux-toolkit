@@ -1,5 +1,8 @@
-const TasksHeader = (props) => {
-  const undoneTasks = props.tasks.filter((t) => t.done === false);
+import { useSelector } from 'react-redux'
+
+const TasksHeader = () => {
+  const tasks = useSelector((state) => state.todo)
+  const undoneTasks = tasks?.filter((t) => t.done === false)
 
   return (
     <header>
@@ -8,7 +11,7 @@ const TasksHeader = (props) => {
         Tâches à faire : <strong>{undoneTasks.length}</strong>
       </p>
     </header>
-  );
-};
+  )
+}
 
-export default TasksHeader;
+export default TasksHeader
